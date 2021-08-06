@@ -28,7 +28,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link ms-sm-5 me-sm-5" href="Salon_Designer.jsp">디자이너</a>
+          <a class="nav-link ms-sm-5 me-sm-5" href="#">디자이너</a>
         </li>
         <li class="nav-item">
           <a class="nav-link ms-sm-5 me-sm-5" href="Salon_Book.jsp">예약</a>

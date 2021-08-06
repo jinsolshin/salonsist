@@ -12,7 +12,7 @@
 <body>
 	<footer class="footer">
 		<hr>
-		<p style="font-family: 야놀자 야체">Copyright 2021. 에러에질수없조 All Rights Reserved.</p>
+		<p style="font-family: 야놀자 야체";>Copyright 2021. 에러에질수없조 All Rights Reserved.</p>
 	</footer>
 </body>
 </html>

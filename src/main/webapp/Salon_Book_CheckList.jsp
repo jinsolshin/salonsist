@@ -1,3 +1,6 @@
+<%@page import="com.sist.vo.SalonSistVo"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.sist.dao.SalonSistDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,6 +24,15 @@
 <body>
 	<jsp:include page="Salon_Header.jsp"/>
 	
+	<%
+		//String booker_phone = request.getParameter("booker_phone");
+		String booker_pwd = request.getParameter("booker_pwd");
+		String booker_name = request.getParameter("booker_name");
+		SalonSistDao dao = SalonSistDao.getInstance();
+		ArrayList<SalonSistVo> list = dao.find(booker_pwd, booker_name);
+		
+	%>
+	
 	<div class="content text-center pt-3 pb-3">
 		<div class="book_form col-sm-8 p-5">
 			<h2>살롱, 시스트 예약 조회</h2>
@@ -38,33 +50,20 @@
 					</tr>
 				</thead>
 				<tbody>
-			  		<tr>
-						<th scope="row">1</th>
-				    	<td>2021/09/19</td>
-				    	<td>10:00</td>
-				    	<td>컷</td>
-				    	<td>남성컷</td>
-				    	<td>김대영 디자이너</td>
-				    	<td><button class="btn btn-outline-dark btn-sm">취소</button></td>
-				    </tr>
-				    <tr>
-						<th scope="row">2</th>
-				    	<td>2021/07/07</td>
-				    	<td>12:00</td>
-				    	<td>펌</td>
-				    	<td>아이롱펌</td>
-				    	<td>김은영 디자이너</td>
-				    	<td>완료</td>
-				    </tr>
-				    <tr>
-						<th scope="row">3</th>
-				    	<td>2021/06/02</td>
-				    	<td>18:00</td>
-				    	<td>컷</td>
-				    	<td>남성컷</td>
-				    	<td>김은영 디자이너</td>
-				    	<td>완료</td>
-				    </tr>
+					<%
+						for(SalonSistVo v:list){
+							%>
+							<tr>
+								<td><%=v.getBooker_num() %></td>
+								<td><%=v.getBooker_date() %></td>
+								<td><%=v.getBooker_time() %></td>
+								<td><%=v.getStyle_name() %></td>
+								<td><%=v.getStyle_detail_name() %></td>
+								<td><%=v.getD_name() %></td>
+							</tr>
+							<%
+						}
+					%>
 				</tbody>
 			</table>
 		</div>
